@@ -1,0 +1,21 @@
+.elementos{
+    display: flex;
+    flex-direction: row;
+    margin-left: 15px; 
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.elementos a{
+    color: aliceblue;
+    text-decoration: none;
+    margin: 0 25px 10px 0;
+}
+
+.editorTabla button{
+    margin: 0 25px 10px 0;
+}
+
+.form-check{
+    margin-bottom: 1rem;
+}

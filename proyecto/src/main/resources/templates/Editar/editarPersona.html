@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head th:replace="layouts/layout :: headGestorTablas"></head>
+
+<body>
+<div class="modal-content">
+    <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Editar personas</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+        <form th:object="${personaActualizar}" th:action="@{/editarPersona/{id}(id=${personaActualizar.id_persona})}" method="post">
+            <div>
+                <label class="form-check-label">Nombre</label>
+                <input type="text" class="form-control" th:field="*{nombre}" required="required"/>
+            </div>
+            <hr/>
+            <div>
+                <label class="form-check-label">Apellido:</label>
+                <input type="text" class="form-control" th:field="*{apellido}" required="required"/>
+            </div>
+            <hr/>
+            <div>
+                <label class="form-check-label">Cedula:</label>
+                <input type="text" class="form-control" th:field="*{cedula}" required="required"/>
+            </div>
+            <hr/>
+            <hr/>
+            <div>
+                <label class="form-check-label">Estrato:</label>
+                <input type="number" class="form-control" th:field="*{estrato}" required="required"/>
+            </div>
+            <hr/>
+            <div>
+                <label class="form-check-label">Puntos de agua:</label>
+                <input type="number" class="form-control" th:field="*{puntosDeAgua}" required="required"/>
+            </div>
+            <div class="form-group">
+                <label for="telefono" class="control-label">telefono</label>
+                <input id="telefono" type="number" class="form-control" th:field="*{telefono}" placeholder="3108840430"
+                       required="required"/>
+                <small>numero de telefono</small>
+            </div>
+            <button type="submit" value="Guardar" class="btn btn-primary">editar</button>
+
+        </form>
+    </div>
+</div>
+</body>

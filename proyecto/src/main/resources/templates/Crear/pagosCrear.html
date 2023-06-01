@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head th:replace="~{layouts/layout :: head}"><title>Crear pagos</title></head>
+
+<body>
+<h1 th:text="${titulo}" class="page-content"></h1>
+<br/>
+<div class="container">
+  <form th:object="${pago}" th:action="@{pagosCrear}" method="post">
+    <div class="form-group">
+      <label for="medicion" class="control-label">medicion actual</label>
+      <input id="medicion" type="number" class="form-control" th:field="*{medicionActual}" placeholder="medicion"
+             required="required"/>
+      <small>Registre la medicion</small>
+    </div>
+    <div class="form-group">
+      <label for="costo" class="control-label">Costo a pagar</label>
+      <input id="costo" type="number" class="form-control" th:field="*{costoaPagar}" placeholder="costo a pagar"
+             required="required"/>
+      <small>Escribir el costo</small>
+    </div>
+    <div class="form-group">
+      <label for="medicionP" class="control-label">medicion Pasada</label>
+      <input id="medicionP" type="number" class="form-control" th:field="*{medicionPasada}" placeholder="medicion Pasada"
+             required="required"/>
+      <small>registre la medicion pasada</small>
+    </div>
+    <div class="form-group">
+      <label for="costoP" class="control-label">costo Pasado</label>
+      <input id="costoP" type="number" class="form-control" th:field="*{costoPasado}" placeholder="1,2,3,4"
+             required="required"/>
+      <small>registre el costo pasado</small>
+    </div>
+
+    <div class="form-group">
+      <label for="Deuda" class="control-label">puntos de agua</label>
+      <input id="Deuda" type="number" class="form-control" th:field="*{deudaTotal}" placeholder="1,2,3,4"
+             required="required"/>
+      <small>si el usuario debe registre lo que debe</small>
+    </div>
+    <div class="form-group">
+      <label for="idregistro" class="control-label">seleccione el registro</label>
+      <select id="idregistro" class="form-control" th:field="*{id_registro}" name="id_registro">
+        <option th:each="registro:${registros}"
+                th:value="${pago.id_registro}"
+                th:if="${pago.estado} ==true"
+        ></option>
+      </select>
+      <small>Selecciona un usuario</small>
+    </div>
+
+
+    <div class="form-group">
+      <div class="form-group">
+        <input type="submit" value="Guardar" class="btn btn-danger">
+      </div>
+    </div>
+  </form>
+</div>
+</body>
+</html>

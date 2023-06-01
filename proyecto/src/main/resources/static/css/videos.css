@@ -1,0 +1,37 @@
+/*formatea el diseño, los deja centrados y con orientacion horizontal*/
+section .navegacion{
+	bottom: 40px;
+	left: 50%;
+	display: flex;
+	justify-content: center;
+	align-items:  center;
+    padding-left: 0px;
+}
+
+/*formatea el diseño y les pone un fondo*/
+section .navegacion li{
+	list-style: none;
+	cursor: pointer;
+	margin: 0 10px;
+	border-radius: 2px;
+	background: #eee;
+	padding: 3px 3px 0;
+	opacity: 0.65;
+	transition: 0.6s;
+}
+
+/*al pasar mouse los items se pone un fondo blanco*/
+section .navegacion li:hover{
+	opacity: 1;
+	background: #fff;
+}
+/*formato cuadrado - miniatura*/
+section .navegacion li img{
+	width: 150px;
+	transition: 0.6s;
+}
+
+/*al pasar el mouse incrementa el tamaño del objeto*/
+section .navegacion li img:hover{
+	width: 200px;
+}

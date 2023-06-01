@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+    <head th:replace="layouts/layout :: headGestorTablas"></head>
+
+    <body>
+        <nav class="navbar navbar-dark bg-dark sticky-top">
+            <div class="container-fluid">
+              <a class="navbar-brand disabled" th:href="@{/}">Home Watter Mettering Company - Personas</a>
+            </div>
+        </nav>
+
+        <table class="table table-ligth table-hover" th:fragment="personasTabla">
+            <thead>
+            <tr>
+                <th scope="col">idPersonas</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellidos</th>
+                <th scope="col">Cedula</th>
+                <th scope="col">Funcionario</th>
+                <th scope="col">Estrato</th>
+                <th scope="col">Puntos de agua</th>
+                <th scope="col">Telefono</th>
+                <th scope="col">eliminar</th>
+                <th scope="col">editar</th>
+            </tr>
+            </thead>
+            <tbody class="table-group-divider">
+            <tr th:each="personas:${personasTabla}" th:if="${personas.estado} == true">
+                <td th:text="${personas.id_persona}"></td>
+                <td th:text="${personas.nombre}"></td>
+                <td th:text="${personas.apellido}"></td>
+                <td th:text="${personas.cedula}"></td>
+                <td th:text="${personas.funcionario}"></td>
+                <td th:text="${personas.estrato}"></td>
+                <td th:text="${personas.puntosDeAgua}"></td>
+                <td th:text="${personas.telefono}"></td>
+                <td>
+                    <a th:href="@{/eliminarPersona/{id}(id=${personas.id_persona})}" class="btn btn-danger btn-xs"
+                       th:text="'Eliminar'" onclick="return confirm('¿De verdad quieres eliminar el registro?')">
+                    </a>
+                </td>
+                <td><a th:href="@{/editarPersona/{id}(id=${personas.id_persona})}" class="btn btn-info btn-xs" th:text="'Editar'"></a></td>
+            </tr>
+
+            </tbody>
+        </table>
+
+    <div>
+        <nav class="navbar navbar-dark bg-dark fixed-bottom">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="true" aria-label="Toggle navigation">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-arrow-bar-up" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8 10a.5.5 0 0 0 .5-.5V3.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 3.707V9.5a.5.5 0 0 0 .5.5zm-7 2.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13a.5.5 0 0 1-.5-.5z"></path>
+                    </svg>
+                </button>
+
+                <a class="navbar-brand" href="#"></a>
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                    <div class="elementos">
+                        <div class="tablas">
+                            <a class="detalles" th:href="@{/Listar/detallesTabla}">Detalles</a>
+                            <a class="personas" th:href="@{/Listar/personasTabla}">Personas</a>
+                            <a class="pagos" th:href="@{/Listar/pagosTabla}">Pagos</a>
+                            <a class="registro" th:href="@{/Listar/registrosTabla}">Registro</a>
+                        </div>
+                        <div class="editorTabla">
+                            <a th:href="@{/Crear/personasCrear}" class="btn btn-primary"  data-bs-whatever="@getbootstrap">Crear</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+    </div>
+
+    </body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+</html>
