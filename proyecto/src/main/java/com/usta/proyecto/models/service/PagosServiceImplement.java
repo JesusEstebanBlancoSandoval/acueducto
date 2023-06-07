@@ -51,5 +51,11 @@ public class PagosServiceImplement implements IpagosService {
         return pagosDAO.findById(id).orElse(null);
 }
 
+    @Override
+    @Transactional(readOnly = true)
+    public List<PagosEntity>selectOnePag(){
+        return (List<PagosEntity>)pagosDAO.selectOnePag();
+    }
+
 
 }

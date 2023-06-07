@@ -43,11 +43,12 @@
       <label for="idregistro" class="control-label">seleccione el registro</label>
       <select id="idregistro" class="form-control" th:field="*{id_registro}" name="id_registro">
         <option th:each="registro:${registros}"
-                th:value="${pago.id_registro}"
-                th:if="${pago.estado} ==true"
+                th:value="${registro.id_registro}"
+                th:text="${registro.id_registro}"
+                th:if="${registro.estado} ==true"
         ></option>
       </select>
-      <small>Selecciona un usuario</small>
+      <small>Seleccione el registro</small>
     </div>
 
 

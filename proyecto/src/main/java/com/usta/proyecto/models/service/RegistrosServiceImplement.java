@@ -1,5 +1,6 @@
 package com.usta.proyecto.models.service;
 
+import com.usta.proyecto.entities.PersonasEntity;
 import com.usta.proyecto.models.dao.RegistrosDAO;
 import com.usta.proyecto.entities.RegistrosEntity;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,6 +50,12 @@ public class RegistrosServiceImplement implements IRegistrosService{
     @Transactional(readOnly = true)
     public RegistrosEntity findOne(Long id){
         return RegistrosDAO.findById(id).orElse(null);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<RegistrosEntity> selectOneReg(){
+        return (List<RegistrosEntity>) RegistrosDAO.selectOneReg();
     }
 
 

@@ -52,7 +52,7 @@ public class RegistrosController {
         }else{
             return "redirect:/error500";
         }
-        return "redirect:Listar/ListarRegistros";
+        return "redirect:/Listar/ListarRegistros";
     }
     @RequestMapping(value = "/cambiarEstadoRegistros/{id}")
     public String cambiarEstadoSeccional(@PathVariable(value = "id")Long id){

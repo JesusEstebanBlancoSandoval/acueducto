@@ -31,7 +31,7 @@ public class PagosController {
     public String crearPagos(Model model){
         model.addAttribute("titulo","crear Detalle");
         model.addAttribute("pago",new PagosEntity());
-        model.addAttribute("registros",iRegistrosService.findAll());
+        model.addAttribute("registros",iRegistrosService.selectOneReg());
         return "/Crear/pagosCrear";
 
     }

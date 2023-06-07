@@ -32,7 +32,7 @@
     <td th:text="${pagos.medicionPasada}"></td>
     <td th:text="${pagos.costoPasado}"></td>
     <td th:text="${pagos.deudaTotal}"></td>
-    <td th:text="${pagos.id_registro}"></td>
+    <td th:text="${pagos.id_registro.id_registro}"></td>
     <td>
       <a th:href="@{/eliminarPagos/{id}(id=${pagos.id_pagos})}" class="btn btn-danger btn-xs"
          th:text="'Eliminar'" onclick="return confirm('¿De verdad quieres eliminar el registro?')">

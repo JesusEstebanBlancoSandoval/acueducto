@@ -1,5 +1,6 @@
 package com.usta.proyecto.models.service;
 
+import com.usta.proyecto.entities.PersonasEntity;
 import com.usta.proyecto.entities.RegistrosEntity;
 
 
@@ -18,5 +19,7 @@ public interface IRegistrosService {
     public void changeState(Long id);
 
     public RegistrosEntity findOne(Long id);
+
+    public List<RegistrosEntity> selectOneReg();
 
 }
