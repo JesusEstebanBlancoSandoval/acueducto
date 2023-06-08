@@ -4,8 +4,6 @@ body{
 	font-family: 'Poppins', sans-serif;
 	font-weight: 300;
 	line-height: 1.7;
-    background: rgb(106,255,189);
-    background: linear-gradient(135deg, rgba(106,255,189,1) 0%, rgba(85,222,255,1) 33%, rgba(54,255,206,1) 66%, rgba(199,245,255,1) 100%);
 }
 a:hover {
 	text-decoration: none;

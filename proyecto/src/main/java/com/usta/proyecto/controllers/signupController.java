@@ -77,7 +77,7 @@ public class signupController {
         datos_login.setPassword(passwordEncoder.encode(datos_login.getPassword()));
         datos_login.setEstado(true);
         RolEntity rol = new RolEntity();
-        rol.setNombre_rol("ROLE_Usuario");
+        rol.setNombre_rol("ROLE_Persona");
         rol.setId_datos_login(datos_login);
         datos_login.addAuthority(rol);
         idatos_loginService.save(datos_login);
