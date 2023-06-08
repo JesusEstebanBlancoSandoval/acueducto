@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 
-<head th:replace="layouts/layout :: headGestorTablas"></head>
+<head th:replace="layouts/tablas :: headListar"><title>Pagos</title></head>
 
 <body>
 <nav class="navbar navbar-dark bg-dark sticky-top">
@@ -60,7 +60,7 @@
           <div class="tablas">
             <a class="detalles" th:href="@{/Listar/detallesTabla}">Detalles</a>
             <a class="personas" th:href="@{/Listar/personasTabla}">Personas</a>
-            <a class="pagos" th:href="@{/Listar/ListarPagos.html}">Pagos</a>
+            <a class="pagos" th:href="@{/Listar/ListarPagos}">Pagos</a>
             <a class="registro" th:href="@{/Listar/registrosTabla}">Registro</a>
           </div>
           <div class="editorTabla">
