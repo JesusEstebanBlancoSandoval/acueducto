@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<div th:replace="~{layouts/layout :: headGestorTablas}">
+</div>
+<body>
+
+<div class="flexbox">
+  <div class="logueo">
+    <h1 class="nombreRegistro">Iniciar sesión</h1>
+    <form th:action="@{/login}" method="post">
+      <br>
+      <fieldset>
+        <label for="username">Ingresa tu correo:<input type="email" name="username" id="username" required placeholder="example@gmail.com" /></label>
+        <label for="password">Ingresa la contraseña:<input type="password" name="password" id="password" required /></label>
+      </fieldset>
+      <input type="submit" value="Ingresar" class="btn-outline-danger "/>
+      <br/>
+      <a th:href="@{/}">Regresar</a>
+      <br>
+      <a  th:href="@{/signup}">Registrarse</a>
+    </form>
+  </div>
+</div>
+<footer th:replace="~{layouts/layout :: footer}"></footer>
+</body>
+</html>

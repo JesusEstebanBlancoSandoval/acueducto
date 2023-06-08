@@ -6,6 +6,7 @@ import com.usta.proyecto.models.service.IPersonasService;
 import com.usta.proyecto.models.service.Idatos_LoginService;
 import com.usta.proyecto.models.service.IrolService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -23,8 +24,8 @@ public class datos_loginController {
     private IPersonasService iPersonasService;
     @Autowired
     private IrolService irolService;
-    //@Autowired
-    //private BCryptPasswordEncoder passwordEncoder;
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
 
 
     @GetMapping("/ListarDatos_login")
@@ -48,7 +49,7 @@ public class datos_loginController {
             return "error/error";
         }
         datos_login.setEstado(true);
-        //datos_login.setPassword(passwordEncoder.encode(datos_login.getPassword()));
+        datos_login.setPassword(passwordEncoder.encode(datos_login.getPassword()));
         RolEntity rol = new RolEntity();
         rol.setNombre_rol("ROLE_Usuario");
         rol.setId_datos_login(datos_login);
@@ -89,8 +90,7 @@ public class datos_loginController {
     public String actualizarDatos_login(@PathVariable(value = "id") Long id, @ModelAttribute("datos_loginActualizar") Datos_Login_Entity datos_loginActualizar) {
         Datos_Login_Entity datos_loginExistente = idatos_loginService.findOne(id);
         datos_loginExistente.setCorreo(datos_loginActualizar.getCorreo());
-        //datos_loginExistente.setPassword(passwordEncoder.encode(datos_loginActualizar.getPassword()));
-        datos_loginExistente.setPassword((datos_loginActualizar.getPassword()));
+        datos_loginExistente.setPassword(passwordEncoder.encode(datos_loginActualizar.getPassword()));
         datos_loginExistente.setId_persona(datos_loginActualizar.getId_persona());
         idatos_loginService.updateDatosLogin(datos_loginExistente);
         return "redirect:/ListarDatos_login";

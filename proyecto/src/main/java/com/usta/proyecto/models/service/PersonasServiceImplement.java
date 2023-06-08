@@ -58,4 +58,11 @@ public class PersonasServiceImplement implements IPersonasService{
         return (List<PersonasEntity>) PersonasDAO.selectOnePer();
     }
 
+    @Override
+    @Transactional(readOnly = true)
+    public PersonasEntity findLastCorreo(){
+        return PersonasDAO.findLastCorreo();
+
+    }
+
 }

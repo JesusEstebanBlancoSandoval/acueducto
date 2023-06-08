@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="~{layouts/layout :: headGestorTablas}">
+  <title>Signup</title>
+</head>
+
+<body>
+
+<div class="flexbox">
+  <div class="logueo">
+    <h1 class="nombreRegistro">Registrar login</h1>
+    <form th:object="${usuarioRegistrar}" th:action="@{/signupdos}" method="post">
+      <br>
+      <fieldset>
+        <label for="correoUsuario">Ingresa un correo:<input type="email" name="correoUsuario" id="correoUsuario" required placeholder="example@gmail.com" th:field="*{correo}" /></label>
+        <label for="contrasena"> Ingresa una contraseña:<input type="password" name="contrasena" id="contrasena" required placeholder="********" th:field="*{password}"/></label>
+      </fieldset>
+      <input type="submit" value="Registrar" class="btn-outline-danger "/>
+      <br/>
+      <a th:href="@{/}">Regresar</a>
+      <br>
+      <label>¿Ya tienes usuario?,</label>
+      <a  th:href="@{/login}">Iniciar Sesión</a>
+    </form>
+  </div>
+</div>
+<footer th:replace="~{layouts/layout :: footer}"></footer>
+</body>
+</html>

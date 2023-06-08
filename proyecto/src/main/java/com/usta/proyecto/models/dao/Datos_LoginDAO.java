@@ -17,4 +17,6 @@ public interface Datos_LoginDAO extends CrudRepository<Datos_Login_Entity,Long> 
     @Query("SELECT datlog from Datos_Login_Entity datlog Where datlog.correo = ?1")
     public Datos_Login_Entity SelectCorreo(String correo);
 
+
+
 }

@@ -21,5 +21,7 @@ public interface IPersonasService {
 
     public List<PersonasEntity> selectOnePer();
 
+    public PersonasEntity findLastCorreo();
+
 
 }

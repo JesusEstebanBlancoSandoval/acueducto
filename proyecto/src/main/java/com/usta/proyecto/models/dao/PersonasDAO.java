@@ -22,4 +22,8 @@ public interface PersonasDAO extends CrudRepository<PersonasEntity,Long> {
       @Modifying
       @Query("SELECT cli FROM PersonasEntity cli WHERE cli.id_persona NOT IN (SELECT reg.id_persona FROM RegistrosEntity reg)")
       public List<PersonasEntity> selectOnePer();
+
+      @Transactional
+      @Query("SELECT MAX(us) FROM PersonasEntity us")
+      public PersonasEntity findLastCorreo();
 }
